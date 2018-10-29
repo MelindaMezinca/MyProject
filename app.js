@@ -18,13 +18,13 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // body - parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/products', product);
+//app.use('/products', product);
 
 
 // Setup the server
 
-app.get('/', (req, res) => res.send('Hello World!'))
-
+//app.get('/', (req, res) => res.send('Hello World!'))
+app.use('/api.v1.0', product);
 app.listen(3000, () => console.log(`Server is up and running on port 3000!`))
 
 

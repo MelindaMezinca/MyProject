@@ -8,15 +8,24 @@ const product_controller = require('../controllers/product.controller');
 router.get('/test', product_controller.test);
 
  // create a new product
- router.post('/create', product_controller.product_create);
+ router.post('/product/create', product_controller.product_create);
 
  // read an existing product
- router.get('/:id', product_controller.product_details);
+ router.get('/product/:id', product_controller.product_details);
 
  // update an existing product
- router.put('/:id/update', product_controller.product_update);
+ router.put('/product/:id/update', product_controller.product_update);
 
  // delete an existing product
- router.delete('/:id/delete', product_controller.product_delete);
+ router.delete('/product/:id/delete', product_controller.product_delete);
+
+ // endpoint
+//router.get('/product/:id/execute', product_controller.product_filter);
+
+ // endpoint /products/search?filterFields=price&lowerValue=20 
+ router.get('/products/search', product_controller.product_filter_price);
+
+ //  GET request for list of all Products items
+ router.get('/products', product_controller.product_all);
 
 module.exports = router;
